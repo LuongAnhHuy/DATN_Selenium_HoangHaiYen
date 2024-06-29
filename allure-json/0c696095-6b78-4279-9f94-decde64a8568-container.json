@@ -1,1 +1,0 @@
-{"uuid":"0c696095-6b78-4279-9f94-decde64a8568","name":"Do An Tot Nghiep","children":["263409a8-beda-4e49-be9d-b094720ae3c5"],"befores":[{"name":"deleteFileInReport","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1719643019859,"stop":1719643019878}],"afters":[],"start":1719643019829,"stop":1719643027892}

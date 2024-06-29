@@ -18,12 +18,12 @@ public class LoginPageObject extends AbstractPage {
         clickToElement(driver, LoginPageUI.CLOSE_POPUP_BUTTON);
     }
 
-    @Step("Step: Input invalid email to textbox {0}")
+    @Step("Step: Input email to textbox {0}")
     public void inputToEmailTextbox(String valueEmail) {
         sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, valueEmail);
     }
 
-    @Step("Step: Input valid password to textbox {0}")
+    @Step("Step: Input password to textbox {0}")
     public void inputToPasswordTextbox(String valuePassword) {
         sendkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, valuePassword);
     }
@@ -33,11 +33,13 @@ public class LoginPageObject extends AbstractPage {
         clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
     }
 
+    @Step("Step: Verify Error message is displayed")
     public void verifyErrorMessageIsDisplayed() {
         waitToElementVisible(driver, LoginPageUI.ERORR_NOTICE);
         Assert.assertTrue(isControlDisplayed(driver, LoginPageUI.ERORR_NOTICE));
     }
 
+    @Step("Step: Verify content of Error Message is displayed correctly")
     public void verifyContentErrorMessageIsDisplayedCorrectly() {
         waitToElementVisible(driver, LoginPageUI.ERORR_NOTICE);
         Assert.assertEquals(getTextElement(driver, LoginPageUI.ERORR_NOTICE), DataTests.MESSAGE_INVALID);

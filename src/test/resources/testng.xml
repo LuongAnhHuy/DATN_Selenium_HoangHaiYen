@@ -15,7 +15,7 @@
 <!--    <test name="Run on Firefox">-->
 <!--        <parameter name="browser" value="firefox"/>-->
 <!--        <classes>-->
-<!--            <class name="testcase.Testcase_Register_Page"></class>-->
+<!--            <class name="testcases.VerifyFunctionLogin" />-->
 <!--        </classes>-->
 <!--    </test>-->
 
