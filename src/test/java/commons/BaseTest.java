@@ -31,6 +31,7 @@ public class BaseTest extends AbstractPage {
     @BeforeSuite
     protected void deleteFileInReport() {
         deleteAllFileInFolder("allure-json");
+        deleteAllFileInFolder("allure-results");
         deleteAllFileInFolder("logs");
     }
 

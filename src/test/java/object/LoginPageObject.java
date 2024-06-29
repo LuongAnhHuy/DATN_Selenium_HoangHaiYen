@@ -28,7 +28,7 @@ public class LoginPageObject extends AbstractPage {
         sendkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, valuePassword);
     }
 
-    @Step("Step: Click to Login button}")
+    @Step("Step: Click to Login button")
     public void clickToLoginButton() {
         clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
     }
