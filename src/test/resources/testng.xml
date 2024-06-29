@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Do An Tot Nghiep" >
+    <listeners>
+        <listener class-name="reportConfig.AllureTestListener"/>
+    </listeners>
+
+    <test name="Run on Chrome">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="testcases.VerifyFunctionLogin" />
+        </classes>
+    </test>
+
+<!--    <test name="Run on Firefox">-->
+<!--        <parameter name="browser" value="firefox"/>-->
+<!--        <classes>-->
+<!--            <class name="testcase.Testcase_Register_Page"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+</suite>
