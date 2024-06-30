@@ -29,8 +29,9 @@ public class LoginPageObject extends AbstractPage {
     }
 
     @Step("Step: Click to Login button")
-    public void clickToLoginButton() {
+    public DashboardPageObject clickToLoginButton() {
         clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
+        return new DashboardPageObject(driver);
     }
 
     @Step("Step: Verify Error message is displayed")

@@ -16,13 +16,9 @@ import testdata.GlobalContants;
 
 import java.io.File;
 
-public class BaseTest extends AbstractPage {
+public class BaseTest extends BasePage {
     private WebDriver driver;
     protected final Logger logger;
-
-    public BaseTest(){
-        logger = LogManager.getLogger(getClass());
-    }
 
     public WebDriver getDriver() {
         return driver;
@@ -54,14 +50,12 @@ public class BaseTest extends AbstractPage {
         }
 
         maximizeBrowsers(driver);
-        implicitWaitBrowser(driver);
         return driver;
     }
 
 
-    protected WebDriver quitBrowser() {
-        closeBrowsers(driver);
-        return driver;
+    protected void quitBrowser() {
+        quitBrowser(driver);
     }
     protected void deleteAllFileInFolder(String folderName) {
         try {
@@ -76,6 +70,9 @@ public class BaseTest extends AbstractPage {
         } catch (Exception e) {
             System.out.print(e.getMessage());
         }
+    }
+    public BaseTest(){
+        logger = LogManager.getLogger(getClass());
     }
 
 }

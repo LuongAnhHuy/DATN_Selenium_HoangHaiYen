@@ -20,7 +20,7 @@ public class VerifyFunctionLogin extends BaseTest {
     @BeforeClass
     public void openBrowser(String browserName){
         driver = getBrowserDriver(browserName);
-        openUrl(driver, DataURL.LOGIN_URL);
+        openPageUrl(driver, DataURL.LOGIN_URL);
     }
 
     @AfterClass
@@ -54,9 +54,8 @@ public class VerifyFunctionLogin extends BaseTest {
         refreshToPage(driver);
         loginPageObject.inputToEmailTextbox(DataAccount.USERNAME);
         loginPageObject.inputToPasswordTextbox(DataAccount.PASSWORD);
-        loginPageObject.clickToLoginButton();
 
-        dashboardPageObject = new DashboardPageObject(driver);
+        dashboardPageObject = loginPageObject.clickToLoginButton();
         dashboardPageObject.verifyMyPanelIsDisplayed();
         dashboardPageObject.verifyDashboardIsDisplayed();
     }
