@@ -50,6 +50,7 @@ public class BaseTest extends BasePage {
         }
 
         maximizeBrowsers(driver);
+        implicitWaitBrowser(driver);
         return driver;
     }
 

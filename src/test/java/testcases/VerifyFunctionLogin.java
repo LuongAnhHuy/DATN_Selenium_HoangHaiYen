@@ -4,6 +4,8 @@ import commons.BaseTest;
 import commons.PageGeneratorManager;
 import object.DashboardPageObject;
 import object.LoginPageObject;
+import object.ManageProfileObject;
+import object.NewAddressObject;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -17,6 +19,8 @@ public class VerifyFunctionLogin extends BaseTest {
     WebDriver driver;
     LoginPageObject loginPageObject;
     DashboardPageObject dashboardPageObject;
+    ManageProfileObject manageProfileObject;
+    NewAddressObject newAddressObject;
 
     @Parameters("browser")
     @BeforeClass
@@ -64,7 +68,23 @@ public class VerifyFunctionLogin extends BaseTest {
 
     @Test
     public void TC_04_Update_Profiles(){
-        dashboardPageObject.clickToManageProfile(DataTests.MANAGE_PROFILE_NAVIGATION);
-
+        manageProfileObject = dashboardPageObject.clickToManageProfile(DataTests.MANAGE_PROFILE_NAVIGATION);
+        manageProfileObject.inputToYourNameTextbox(DataTests.YOUR_NAME);
+        manageProfileObject.inputToYourPhoneTextbox(DataTests.YOUR_PHONE);
+        manageProfileObject.clickToUpdateProfileButton();
+        refreshToPage(driver);
+        manageProfileObject.verifyValueOfYourName(DataTests.YOUR_NAME);
+        manageProfileObject.verifyValueOfYourPhone(DataTests.YOUR_PHONE);
+    }
+    @Test
+    public void TC_05_Add_Address(){
+        newAddressObject = manageProfileObject.clickToAddNewAddress();
+        newAddressObject.inputToAddressTextbox(DataTests.ADDRESS);
+        newAddressObject.selectCountryInDropdownList(DataTests.COUNTRY);
+        newAddressObject.selectStateInDropdownList(DataTests.STATE);
+        newAddressObject.selectCityInDropdownList(DataTests.CITY);
+        newAddressObject.inputToPostalCodeTextbox(DataTests.POSTALCODE);
+        newAddressObject.inputToPhoneTextbox(DataTests.PHONE);
+        newAddressObject.clickToSaveButton();
     }
 }

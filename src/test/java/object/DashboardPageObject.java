@@ -1,6 +1,7 @@
 package object;
 
 import commons.AbstractPage;
+import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -23,9 +24,8 @@ public class DashboardPageObject extends AbstractPage {
     }
 
     @Step("Click to Manage Profile hyperlink")
-    public void clickToManageProfile(String value) {
-        //waitToElementPresence(driver, DashboardPageUI.NAVIGATION_BAR);
-        //getItemInListItem(driver, DashboardPageUI.NAVIGATION_BAR, DataTests.MANAGE_PROFILE_NAVIGATION);
+    public ManageProfileObject clickToManageProfile(String value) {
         clickItemInListItem(driver, DashboardPageUI.NAVIGATION_BAR, value);
+        return PageGeneratorManager.getManagerProfile(driver);
     }
 }

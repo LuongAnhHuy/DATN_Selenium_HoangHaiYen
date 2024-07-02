@@ -2,9 +2,14 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class BasePage {
     public static BasePage getBasePageObject(){
         return new BasePage();
+    }
+    protected void implicitWaitBrowser(WebDriver driver) {
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
     protected void openPageUrl(WebDriver driver, String pageURL){
         driver.get(pageURL);

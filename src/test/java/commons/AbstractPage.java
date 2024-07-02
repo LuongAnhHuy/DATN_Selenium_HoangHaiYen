@@ -30,43 +30,11 @@ public abstract class AbstractPage {
     // - Define biến long timeout
     private long longTimeOut = 15;
 
-    // - Khai báo biến global cho element (của hàm Javascript Execut
+    // - Khai báo biến global cho element (của hàm Javascript Executor)
     private WebElement element;
 
 
     // define ra biến url, => tránh việc fix cứng url làm sai ý nghĩa của commons
-    protected void maximizeBrowsers(WebDriver driver) {
-        driver.manage().window().maximize();
-    }
-
-    protected void closeBrowsers(WebDriver driver) {
-        driver.quit();
-    }
-
-    protected void openUrl(WebDriver driver, String url) {
-        driver.get(url);
-    }
-
-    protected String getPageTitle(WebDriver driver) {
-        return driver.getTitle();
-    }
-
-    protected String getCurrentUrl(WebDriver driver) {
-        return driver.getCurrentUrl();
-    }
-
-    protected void backToPage(WebDriver driver) {
-        driver.navigate().back();
-    }
-
-    protected void refreshToPage(WebDriver driver) {
-        driver.navigate().refresh();
-    }
-
-    protected void forwardToPage(WebDriver driver) {
-        driver.navigate().forward();
-    }
-
     protected void implicitWaitBrowser(WebDriver driver) {
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
@@ -302,6 +270,18 @@ public abstract class AbstractPage {
         jsExecutor = (JavascriptExecutor) driver;
         element = find(driver, locator);
         jsExecutor.executeScript("arguments[0].removeAttribute('" + attributeRemove + "')", element);
+    }
+    protected void scrollIntoView(WebDriver driver, String locator){
+        jsExecutor = (JavascriptExecutor) driver;
+        element = find(driver, locator);
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    protected void scrollIntoViewToClick(WebDriver driver, String locator){
+        jsExecutor = (JavascriptExecutor) driver;
+        element = find(driver, locator);
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+        jsExecutor.executeScript("arguments[0].click();", element);
     }
 
     protected void getItemInListItem(WebDriver driver, String locator, String expected){
