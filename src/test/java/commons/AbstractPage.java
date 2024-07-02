@@ -321,8 +321,7 @@ public abstract class AbstractPage {
         for (WebElement item : allItems){
             if (item.getText().equals(expected)){
                 item.click();
-            }else {
-                throwException();
+                break;
             }
         }
     }

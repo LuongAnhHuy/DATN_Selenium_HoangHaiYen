@@ -1,6 +1,7 @@
 package object;
 
 import commons.AbstractPage;
+import commons.PageGeneratorManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -31,7 +32,7 @@ public class LoginPageObject extends AbstractPage {
     @Step("Step: Click to Login button")
     public DashboardPageObject clickToLoginButton() {
         clickToElement(driver, LoginPageUI.LOGIN_BUTTON);
-        return new DashboardPageObject(driver);
+        return PageGeneratorManager.getDashboard(driver);
     }
 
     @Step("Step: Verify Error message is displayed")
